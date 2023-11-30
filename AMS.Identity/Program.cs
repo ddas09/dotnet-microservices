@@ -1,4 +1,5 @@
 using AMS.Identity.Data;
+using AMS.Identity.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,9 @@ builder.Services.AddDbContext<IdentityServerDBContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityDbConnectionString"));
 });
+
+builder.Services.RegisterRepositories();
+builder.Services.RegisterServices();
 
 var app = builder.Build();
 
