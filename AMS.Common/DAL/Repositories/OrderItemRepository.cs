@@ -1,12 +1,12 @@
-using AMS.Common.DAL.Contracts;
+using AMS.Common.Data;
 using AMS.Common.Data.Entities;
-using Microsoft.EntityFrameworkCore;
+using AMS.Common.DAL.Contracts;
 
 namespace AMS.Common.DAL.Repositories;
 
 public class OrderItemRepository : CrudBaseRepository<OrderItem>, IOrderItemRepository
 {
-    public OrderItemRepository(DbContext dbContext) : base(dbContext)
+    public OrderItemRepository(BaseDBContext dbContext) : base(dbContext)
     {
     }
 }

@@ -1,3 +1,4 @@
+using AMS.Common.Data;
 using System.Linq.Expressions;
 using AMS.Common.DAL.Contracts;
 using AMS.Common.Data.Entities;
@@ -7,10 +8,10 @@ namespace AMS.Common.DAL.Repositories;
 
 public abstract class CrudBaseRepository<TEntity> : ICrudBaseRepository<TEntity> where TEntity : BaseEntity
 {
-    private readonly DbContext _dbContext;
+    private readonly BaseDBContext _dbContext;
     private readonly DbSet<TEntity> _entities;
 
-    public CrudBaseRepository(DbContext dbContext)
+    public CrudBaseRepository(BaseDBContext dbContext)
     {
         _dbContext = dbContext;
         _entities = _dbContext.Set<TEntity>();
